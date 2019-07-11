@@ -1,0 +1,714 @@
+script,greencolor,begin
+	#This script changes the slime color based on it's gender
+	suspend player
+	#let's register this chosing on it's global
+	Race := Green
+		if (check tag(Male) == true) then
+		(
+		#if the player is a male, then a male apparence
+		set hero picture (me,0,outside battle)
+		set hero palette (me,1,outside battle)
+		#Now to it's class screen
+		greenclasses
+		)
+		#if the player is a female, then a female apparence
+		else if (check tag (Female) == true) then
+		(
+		set hero picture (me,1,outside battle)
+		set hero palette (me,1,outside battle)
+		#Now to it's class screen
+		greenclasses
+		)
+	else
+	(
+	#if everything else fails
+	resume player
+	)
+	resume player
+end
+
+script,redcolor,begin
+	#This script changes the slime color based on it's gender
+	suspend player
+	#let's register this chosing on it's global
+	Race := Red
+		if (check tag(Male) == true) then
+		(
+		#if the player is a male, then a male apparence
+		set hero picture (me,0,outside battle)
+		set hero palette (me,3,outside battle)
+		#Now to it's class screen
+		redclasses
+		)
+		else if (check tag (Female) == true) then
+		(
+		#if the player is a female, then a female apparence
+		set hero picture (me,1,outside battle)
+		set hero palette (me,3,outside battle)
+		#Now to it's class screen
+		redclasses
+		)
+	else
+	(
+	#if everything else fails
+	resume player
+	)
+	resume player
+end
+
+script,bluecolor,begin
+	#This script changes the slime color based on it's gender
+	suspend player
+	#let's register this chosing on it's global
+	Race := Blue
+		if (check tag(Male) == true) then
+		(
+		#if the player is a male, then a male apparence
+		set hero picture (me,0,outside battle)
+		set hero palette (me,4,outside battle)
+		#Now to it's class screen
+		blueclasses
+		)
+		else if (check tag (Female) == true) then
+		(
+		#if the player is a female, then a female apparence
+		set hero picture (me,1,outside battle)
+		set hero palette (me,4,outside battle)
+		#Now to it's class screen
+		blueclasses
+		)
+	else
+	(
+	#if everything else fails
+	resume player
+	)
+	resume player
+end
+
+script,greenclasses,begin
+	#This is the class screen script for the green race
+	show textbox (4)
+	wait for textbox
+	suspend player
+	fade screen out
+	#let's clean the screen
+	wait (5)
+	destroy npc (npc reference(0,0))
+	destroy npc (npc reference(1,0))
+	destroy npc (npc reference(2,0))
+	destroy npc (npc reference(3,0))
+	destroy npc (npc reference(4,0))
+	destroy npc (npc reference(5,0))
+	set hero position (me,17,17)
+	set hero direction(me,north)
+	wait (5)
+	#If the player is a male, then we show the male classes
+	if (check tag (Male) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (6,17,16,south)
+	create NPC (12,18,16,south)
+	create NPC (14,16,16,south)
+	create NPC (16,15,16,south)
+	create NPC (18,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+	#If the player is a female, then we show the female classes
+	else if (check tag (Female) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (6,17,16,south)
+	create NPC (13,18,16,south)
+	create NPC (15,16,16,south)
+	create NPC (17,15,16,south)
+	create NPC (19,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+end
+
+script,redclasses,begin
+	#This is the class screen script for the red race
+	show textbox (4)
+	wait for textbox
+	suspend player
+	fade screen out
+	#let's clean the screen
+	destroy npc (npc reference(0,0))
+	destroy npc (npc reference(1,0))
+	destroy npc (npc reference(2,0))
+	destroy npc (npc reference(3,0))
+	destroy npc (npc reference(4,0))
+	destroy npc (npc reference(5,0))
+	set hero position (me,17,17)
+	set hero direction(me,north)
+	#If the player is a male, then we show the male classes
+	if (check tag (Male) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (8,17,16,south)
+	create NPC (20,18,16,south)
+	create NPC (22,16,16,south)
+	create NPC (24,15,16,south)
+	create NPC (26,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+	#If the player is a female, then we show the female classes
+	else if (check tag (Female) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (9,17,16,south)
+	create NPC (21,18,16,south)
+	create NPC (23,16,16,south)
+	create NPC (25,15,16,south)
+	create NPC (27,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+end
+
+script,blueclasses,begin
+	#This is the class screen script for the blue race
+	show textbox (4)
+	wait for textbox
+	suspend player
+	fade screen out
+	#let's clean the screen
+	destroy npc (npc reference(0,0))
+	destroy npc (npc reference(1,0))
+	destroy npc (npc reference(2,0))
+	destroy npc (npc reference(3,0))
+	destroy npc (npc reference(4,0))
+	destroy npc (npc reference(5,0))
+	wait (5)
+	set hero position (me,17,17)
+	set hero direction(me,north)
+	#If the player is a male, then we show the male classes
+	if (check tag (Male) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (10,17,16,south)
+	create NPC (28,18,16,south)
+	create NPC (30,16,16,south)
+	create NPC (32,15,16,south)
+	create NPC (34,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+	#If the player is a female, then we show the female classes
+	else if (check tag (Female) == true) then
+	(
+	#Now we populate with the class NPCs
+	create NPC (11,17,16,south)
+	create NPC (29,18,16,south)
+	create NPC (31,16,16,south)
+	create NPC (33,15,16,south)
+	create NPC (35,19,16,south)
+	wait (5)
+	fade screen in
+	wait (5)
+	show textbox (9)
+	wait for textbox
+	resume player
+	)
+end
+
+script,GodsScreen,begin
+	Suspend player
+	show textbox (4)
+	wait for textbox
+	Fade screen out
+	wait(5)
+	#First we clean the screen
+	destroy npc (npc reference(6,0))
+	destroy npc (npc reference(7,0))
+	destroy npc (npc reference(8,0))
+	destroy npc (npc reference(9,0))
+	destroy npc (npc reference(10,0))
+	destroy npc (npc reference(11,0))
+	destroy npc (npc reference(12,0))
+	destroy npc (npc reference(13,0))
+	destroy npc (npc reference(14,0))
+	destroy npc (npc reference(15,0))
+	destroy npc (npc reference(16,0))
+	destroy npc (npc reference(17,0))
+	destroy npc (npc reference(18,0))
+	destroy npc (npc reference(19,0))
+	destroy npc (npc reference(20,0))
+	destroy npc (npc reference(21,0))
+	destroy npc (npc reference(22,0))
+	destroy npc (npc reference(23,0))
+	destroy npc (npc reference(24,0))
+	destroy npc (npc reference(25,0))
+	destroy npc (npc reference(26,0))
+	destroy npc (npc reference(27,0))
+	destroy npc (npc reference(28,0))
+	destroy npc (npc reference(29,0))
+	destroy npc (npc reference(30,0))
+	destroy npc (npc reference(31,0))
+	destroy npc (npc reference(32,0))
+	destroy npc (npc reference(33,0))
+	destroy npc (npc reference(34,0))
+	destroy npc (npc reference(35,0))
+	wait (5)
+	#Now lets populate the screen with the diety NPCs
+	create NPC (36)
+	create NPC (37)
+	create NPC (38)
+	create NPC (39)
+	create NPC (40)
+	create NPC (36,17,16,south)
+	create NPC (37,18,16,south)
+	create NPC (38,16,16,south)
+	create NPC (39,15,16,south)
+	create NPC (40,19,16,south)
+	create NPC (41,17,18,north)
+	set hero position (me, 17,17)
+	set hero direction (me, down)
+	wait (5)
+	Fade Screen in
+	wait (5)
+	show textbox (15)
+	wait for textbox
+	resume player
+end
+
+script,GenHeroMaleRace,begin
+	if (Race == Green) then
+		(GenHeroMaleGreenClasses)
+	else if (Race == Red) then
+		(GenHeroMaleRedClasses)
+	else if (Race == Blue) then
+		(GenHeroMaleBlueClasses)
+End
+
+script, GenHeroFemaleRace, begin
+	if (Race == Green) then
+		(GenHeroFemaleGreenClasses)
+	else if (Race == Red) then
+		(GenHeroFemaleRedClasses)
+	else if (Race == Blue) then
+		(GenHeroFemaleBlueClasses)
+End
+
+script, GenHeroMaleGreenClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:MGWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MGWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:MGMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MGMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:MGThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MGThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:MGArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MGArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:MGHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MGHealer)
+		Adventure)
+end
+
+script, GenHeroFemaleGreenClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:FGWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FGWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:FGMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FGMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:FGThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FGThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:FGArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FGArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:FGHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FGHealer)
+		Adventure)
+end
+
+script, GenHeroMaleRedClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:MRWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MRWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:MRMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MRMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:MRThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MRThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:MRArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MRArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:MRHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MRHealer)
+		Adventure)
+end
+
+script, GenHeroFemaleRedClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:FRWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FRWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:FRMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FRMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:FRThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FRThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:FRArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FRArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:FRHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FRHealer)
+		Adventure)
+end
+
+script, GenHeroMaleBlueClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:MBWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MBWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:MBMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MBMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:MBThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MBThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:MBArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MBArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:MBHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:MBHealer)
+		Adventure)
+end
+
+script, GenHeroFemaleBlueClasses, begin
+	if (Class == Warrior) then 
+		(add hero (hero:FBWarrior)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FBWarrior)
+		Adventure)
+	else if (Class == Mage) then 
+		(add hero (hero:FBMage)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FBMage)
+		Adventure)
+	else if (Class == Thief) then 
+		(add hero (hero:FBThief)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FBThief)
+		Adventure)
+	else if (Class == Archer) then 
+		(add hero (hero:FBArcher)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FBArcher)
+		Adventure)
+	else if (Class == Healer) then 
+		(add hero (hero:FBHealer)
+		swap out hero (hero:MaleSpirit)
+		lock hero (hero:MaleSpirit)
+		wait (1)
+		swap by position(0,1)
+		show textbox (23)
+		wait for textbox
+		rename hero (hero:FBHealer)
+		Adventure)
+end
+
+script,CheckRace,begin
+	if((read global(1)) == Green) then(
+		$1="Green"
+		)
+	else if((read global(1)) == Red) then(
+		$1="Red"
+		)
+	else if((read global(1)) == Blue) then(
+		$1="Blue"
+		)
+end
+
+script,CheckGender,begin
+	if((read global(2)) == Male) then(
+		$2="Male"
+		)
+	else if((read global(2)) == Female) then(
+		$2="Female"
+		)
+end
+
+script,CheckClass,begin
+	if((read global(3)) == Warrior) then(
+		$3="Warrior"
+		)
+	else if((read global(3)) == Mage) then(
+		$3="Mage"
+		)
+	else if((read global(3)) == Thief) then(
+		$3="Thief"
+		)
+	else if((read global(3)) == Archer) then(
+		$3="Archer"
+		)
+	else if((read global(3)) == Healer) then(
+		$3="Healer"
+		)
+end
+
+script,CheckDeity,begin
+	if((read global(4)) == Abholos) then(
+		$4="Abholos"
+		)
+	else if((read global(4)) == Osmo) then(
+		$4="Osmo"
+		)
+	else if((read global(4)) == Gagckt) then(
+		$4="Gagckt"
+		)
+	else if((read global(4)) == Shathak) then(
+		$4="Shathak"
+		)
+	else if((read global(4)) == Birmus) then(
+		$4="Birmus"
+		)
+	else if((read global(4)) == NoOne) then(
+		$4="None"
+		)
+end
+
+script,Adventure,begin
+	suspend player
+	fade screen out
+	#DietyPowers
+	wait (10)
+	CheckRace
+	CheckGender
+	CheckClass
+	CheckDeity
+	teleport to map (3,21,25)
+	wait (1)
+	fade screen in
+	resume player
+end
+
+script,CheckClear,begin
+	clear string(1)
+	clear string(2)
+	clear string(3)
+	clear string(4)
+end

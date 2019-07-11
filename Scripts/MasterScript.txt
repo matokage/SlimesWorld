@@ -1,0 +1,713 @@
+include, plotscr.hsd
+include, simpleslimes.hsi
+include, globals.txt
+include, modules.txt
+
+plotscript,StarMenu,begin
+	open menu (6)
+end
+plotscript,Start,begin
+	#let's start from the begining
+	#this script gives a short intro for the player
+	suspend player
+	#let's put the first npc on the map
+	fade screen out
+	wait(5)
+	teleport to map (0,17,17)
+	Create npc (0,19,17,Left)
+	Create npc (1,15,17,Right)
+	Wait (20)
+	fade screen in
+	Wait (5)
+	show textbox (1)
+	wait for textbox
+	resume player
+end
+
+plotscript,Gender,begin
+	#The First step on the character building is choosing a gender
+	#If you chose Male then your aparence will be a male slime
+	if (check tag(Male) == true) then
+	(
+	#let's register this choosing on it's global
+	Sex := Male
+	suspend player
+	#Chose it's apparence
+	set hero picture (me,0,outside battle)
+	set hero palette (me,1,outside battle)
+	Show textbox (4)
+	wait for text box
+	fade screen out
+	#now, we gonna load the Race choosing screen
+	wait (5)
+	destroy npc (npc reference(0,0))
+	destroy npc (npc reference(1,0))
+	wait(5)
+	set hero position (me, 17,17)
+	set hero direction (me, down)
+	wait(5)
+	create NPC (0,17,18,down)
+	create NPC (2,16,18,down)
+	create NPC (4,18,18,down)
+	Wait (5)
+	fade screen in
+	wait (5)
+	show textbox (5)
+	wait for textbox
+	resume player
+	)
+	#If you chose female the your aparence will be a female slime
+	else if (check tag(Female) == true) then
+	(
+	#let's register this choosing on it's global
+	Sex := Female
+	suspend player
+	set hero picture (me,1,outside battle)
+	set hero palette (me,1,outside battle)
+	Show textbox (4)
+	wait for text box
+	fade screen out
+	#now, we gonna load the Race choosing screen
+	wait (5)
+	destroy npc (npc reference(0,0))
+	destroy npc (npc reference(1,0))
+	wait(5)
+	set hero position (me, 17,17)
+	set hero direction (me, down)
+	wait(5)
+	create NPC (1,17,18,down)
+	create NPC (3,16,18,down)
+	create NPC (5,18,18,down)
+	Wait (5)
+	fade screen in
+	wait (5)
+	show textbox (5)
+	wait for textbox
+	resume player
+	)
+	else(
+	resume player
+	)
+end
+	
+plotscript,color,begin
+	#this script will be used to identify wich race the player has picked
+	#in this method I call other script to do the job, so our file is better organized
+	if (check tag(Green) == true) then
+	(
+	#if it's green then, the green script
+	greencolor
+	#Refer to modules.txt for the command above
+	)
+	else if (check tag (Red) == true) then
+	(
+	#if it's red then, the red script
+	redcolor
+	#Refer to modules.txt for the command above
+	)
+	else if (check tag (Blue) == true) then
+	(
+	#if it's blue then, the blue script
+	bluecolor
+	#Refer to modules.txt for the command above
+	)
+	else(
+	#if everything else fails
+	Resume Player
+	)
+	Resume player
+end
+
+#Refer to modules.txt to view how the race and classes scripts are organized
+
+Plotscript,WarClass,begin
+	#This script does not call for other scripts
+	#so it's less organized but still as eficient
+	#just don't lose yourself on the "if" statements
+	suspend player
+	#Firstly, We need to check if the player chosed "yes" or "No"
+	if (check tag (Warrior) == true) then 
+	(
+	#let's register this choosing on it's global
+	Class := Warrior
+	#Secondly, we need to check it's Gender
+		if (check tag (Male) == true) then
+	#if he is male, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Warior Outfit
+			(
+			set hero picture (me,2,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Warior Outfit
+			(
+			set hero picture (me,2,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Warior Outfit
+			(
+			set hero picture (me,2,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+		Else if (check tag (Female) == true) then
+	#if he is Female, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Warior Outfit
+			(
+			set hero picture (me,3,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Warior Outfit
+			(
+			set hero picture (me,3,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Warior Outfit
+			(
+			set hero picture (me,3,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+	)
+	Else(
+	#if everything else fails
+	resume player
+	)
+End
+#let us Repeat this badass motherfucker for the other classes!
+
+Plotscript,MagClass,begin
+	#This is script, does not call for other scripts
+	#so it's less organized but still as eficient
+	#just don't lose yourself on the "if" statements
+	suspend player
+	#Firstly, We need to check if the player chosed "yes" or "No"
+	if (check tag (Mage) == true) then 
+	(
+	#let's register this choosing on it's global
+	Class := Mage
+	#Secondly, we need to check it's Gender
+		if (check tag (Male) == true) then
+	#if he is male, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Mage Outfit
+			(
+			set hero picture (me,6,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Mage Outfit
+			(
+			set hero picture (me,6,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Mage Outfit
+			(
+			set hero picture (me,6,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+		Else if (check tag (Female) == true) then
+	#if he is Female, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Mage Outfit
+			(
+			set hero picture (me,7,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Mage Outfit
+			(
+			set hero picture (me,7,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Mage Outfit
+			(
+			set hero picture (me,7,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+	)
+	Else(
+	#if everything else fails
+	resume player
+	)
+end
+
+Plotscript,ThieClass,begin
+	#This is script, does not call for other scripts
+	#so it's less organized but still as eficient
+	#just don't lose yourself on the "if" statements
+	suspend player
+	#Firstly, We need to check if the player chosed "yes" or "No"
+	if (check tag (Thief) == true) then 
+	(
+	#let's register this choosing on it's global
+	Class := Thief
+	#Secondly, we need to check it's Gender
+		if (check tag (Male) == true) then
+	#if he is male, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Thief Outfit
+			(
+			set hero picture (me,8,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Thief Outfit
+			(
+			set hero picture (me,8,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Thief Outfit
+			(
+			set hero picture (me,8,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+		Else if (check tag (Female) == true) then
+	#if he is Female, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Thief Outfit
+			(
+			set hero picture (me,13,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Thief Outfit
+			(
+			set hero picture (me,13,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Thief Outfit
+			(
+			set hero picture (me,13,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+	)
+	Else(
+	#if everything else fails
+	resume player
+	)
+end
+
+Plotscript,ArchClass,begin
+	#This is script, does not call for other scripts
+	#so it's less organized but still as eficient
+	#just don't lose yourself on the "if" statements
+	suspend player
+	#Firstly, We need to check if the player chosed "yes" or "No"
+	if (check tag (Archer) == true) then 
+	(
+	#let's register this choosing on it's global
+	Class := Archer
+	#Secondly, we need to check it's Gender
+		if (check tag (Male) == true) then
+	#if he is male, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Archer Outfit
+			(
+			set hero picture (me,11,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Archer Outfit
+			(
+			set hero picture (me,11,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Archer Outfit
+			(
+			set hero picture (me,11,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+		Else if (check tag (Female) == true) then
+	#if he is Female, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Archer Outfit
+			(
+			set hero picture (me,12,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Archer Outfit
+			(
+			set hero picture (me,12,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Archer Outfit
+			(
+			set hero picture (me,12,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+	)
+	Else(
+	#if everything else fails
+	resume player
+	)
+end
+
+Plotscript,HealClass,begin
+	#This is script, does not call for other scripts
+	#so it's less organized but still as eficient
+	#just don't lose yourself on the "if" statements
+	suspend player
+	#Firstly, We need to check if the player chosed "yes" or "No"
+	if (check tag (Healer) == true) then 
+	(
+	#let's register this choosing on it's global
+	Class := Healer
+	#Secondly, we need to check it's Gender
+		if (check tag (Male) == true) then
+	#if he is male, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Healer Outfit
+			(
+			set hero picture (me,9,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Healer Outfit
+			(
+			set hero picture (me,9,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Healer Outfit
+			(
+			set hero picture (me,9,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			)
+		)
+		Else if (check tag (Female) == true) then
+	#if he is Female, then we will dress the character as it's class and race
+		(
+		if (check tag (Green) == true) then
+	#if he is green, then Green Healer Outfit
+			(
+			set hero picture (me,10,outside battle)
+			set hero palette (me,1,outside battle)
+			Resume player
+			GodsScreen
+			)
+		Else if (check tag (Red) == true) then
+	#if he is Red, then Red Healer Outfit
+			(
+			set hero picture (me,10,outside battle)
+			set hero palette (me,3,outside battle)
+			Resume player
+			GodsScreen
+			)
+		Else if (check tag (Blue) == true) then
+	#if he is Blue, then Blue Healer Outfit
+			(
+			set hero picture (me,10,outside battle)
+			set hero palette (me,4,outside battle)
+			Resume player
+			GodsScreen
+			#Refer to modules.txt for the command above
+			)
+		)
+	)
+	Else(
+	#if everything else fails
+	resume player
+	)
+end
+
+#Next script is the Diety choosing
+#Depending the Diety you chose you will be given some Spells
+#Even not Having a Diety may give you some Spells
+#
+
+plotscript,GodChoseing,begin
+	Suspend player
+	#let's check which Diety the player has chosen
+	if (check tag (Abholos) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := Abholos
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else if (check tag (Osmo) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := Osmo
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else if (check tag (Gagckt) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := Gagckt
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else if (check tag (Shathak) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := Shathak
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else if (check tag (Birmus) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := Birmus
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else if (check tag (NoOne) == true) then
+		(
+		#let's register this choosing on it's global
+		Deity := NoOne
+		show textbox (22)
+		wait for textbox
+		Resume player
+		open menu (1,false)
+		)
+	else
+	(
+	Resume player
+	)
+End
+
+#The comming scripts are for the 
+#Character Edition menu elements and submenus
+
+plotscript,MaleCM,begin
+	play sound(sfx:C4 C 10hz)
+	Sex := Male
+End
+
+plotscript,FemaleCM,begin
+	play sound(sfx:C4 C 10hz)
+	Sex := Female
+End
+
+plotscript,RedCM,begin
+	play sound(sfx:C4 C 10hz)
+	Race := Red
+End
+
+plotscript,GreenCM,begin
+	play sound(sfx:C4 C 10hz)
+	Race := Green
+End
+
+plotscript,BlueCM,begin
+	play sound(sfx:C4 C 10hz)
+	Race := Blue
+End
+
+plotscript,WarriorCM,begin
+	play sound(sfx:C4 C 10hz)
+	Class := Warrior
+End
+
+plotscript,MageCM,begin
+	play sound(sfx:C4 C 10hz)
+	Class := Mage
+End
+
+plotscript,ThiefCM,begin
+	play sound(sfx:C4 C 10hz)
+	Class := Thief
+End
+
+plotscript,ArcherCM,begin
+	play sound(sfx:C4 C 10hz)
+	Class := Archer
+End
+
+plotscript,HealerCM,begin
+	play sound(sfx:C4 C 10hz)
+	Class := Healer
+End
+
+plotscript,AbholosCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := Abholos
+End
+
+plotscript,OsmoCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := Osmo
+End
+
+plotscript,GagcktCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := Gagckt
+End
+
+plotscript,ShathakCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := Shathak
+End
+
+plotscript,BirmusCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := Birmus
+End
+
+plotscript,NoOneCM,begin
+	play sound(sfx:C4 C 10hz)
+	Deity := NoOne
+End
+
+plotscript,GenHeroGender,begin
+	#This script will be FUCKING ENOURMOUS!
+	#it just check the global values and
+	#gives a predefined hero
+	#For organization sake, this script will be devided in
+	#multiple scripts
+	#Refer to modules.txt for each of them
+	#FIRST! Let's check its gender
+	if (Sex == Male) then
+		(GenHeroMaleRace)
+	else if (Sex == Female) then
+		(GenHeroFemaleRace)
+end
+
+#script,DietyPowers,begin
+#the following ToDo script is a simple
+#check on the diety global and the addition of
+#spells to the "Diety" spell list
+#The idea is to use something else reather then "mana"
+#
+	
+plotscript,jatoba harvest,IDnum,IDcop,begin
+	destroy npc (IDcop)
+	play sound (0)
+	get item (24,1)
+end
+plotscript,manaca harvest,IDnum,IDcop,begin
+	destroy npc (IDcop)
+	play sound (0)
+	get item (25,1)
+end
+	
+plotscript,ipe harvest,IDnum,IDcop,begin
+	destroy npc (IDcop)
+	play sound (0)
+	get item (26,1)
+end
+
+plotscript,CharSheet,begin
+	wait(1)
+	show textbox (38)
+	wait for textbox
+end
+		

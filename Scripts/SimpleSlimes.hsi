@@ -1,0 +1,92 @@
+# HamsterSpeak constant definitions for SimpleSlimes.rpg
+
+define constant, begin
+2,tag:Male
+3,tag:Female
+4,tag:Green
+5,tag:Red
+6,tag:Blue
+7,tag:Warrior
+8,tag:Mage
+9,tag:Thief
+10,tag:Archer
+11,tag:Healer
+12,tag:Abholos
+13,tag:Osmo
+14,tag:Gagckt
+15,tag:Shathak
+16,tag:Birmus
+17,tag:NoOne
+1,sfx:C4 C 10hz
+0,hero:MaleSpirit
+1,hero:FemaleSpirit
+2,hero:MGWarrior
+3,hero:FGWarrior
+4,hero:MRWarrior
+5,hero:FRWArrior
+6,hero:MBWarrior
+7,hero:FBWarrior
+8,hero:MGMage
+9,hero:FGMage
+10,hero:MRMage
+11,hero:FRMage
+12,hero:MBMage
+13,hero:FBMage
+14,hero:MGThief
+15,hero:FGThief
+16,hero:MRThief
+17,hero:FRThief
+18,hero:MBThief
+19,hero:FBThief
+20,hero:MGArcher
+21,hero:FGArcher
+22,hero:MRArcher
+23,hero:FRArcher
+24,hero:MBArcher
+25,hero:FBArcher
+26,hero:MGHealer
+27,hero:FGHealer
+28,hero:MRHealer
+29,hero:FRHealer
+30,hero:MBHealer
+31,hero:FBHealer
+0,stat:HP
+1,stat:MP
+2,stat:Atk
+3,stat:Aim
+4,stat:Def
+5,stat:Dog
+6,stat:Mag
+7,stat:Wil
+8,stat:Spd
+9,stat:Ctr
+10,stat:MP~
+11,stat:Hits
+0,element:Fire
+1,element:Ice
+2,element:Lit
+3,element:Earth
+4,element:Other
+5,element:Other 2
+6,element:Other 3
+7,element:Other 4
+8,element:Type 1killer
+9,element:Type 2killer
+10,element:Type 3killer
+11,element:Type 4killer
+12,element:Type 5killer
+13,element:Type 6killer
+14,element:Type 7killer
+15,element:Type 8killer
+1,slot:Weapon
+1,slot:Weapon 2
+2,slot:Head
+3,slot:Body
+4,slot:Arms
+5,slot:Legs
+1,menu:Character Edition
+2,menu:Gender
+3,menu:Race
+4,menu:Class
+5,menu:Diety
+end

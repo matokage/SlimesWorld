@@ -1,0 +1,41 @@
+#let's define some constants
+#these constants will be used later to identify the player character
+#Gender Constants
+#These values are stored in $2 as well
+define constant (2,Male)
+define constant (3,Female)
+#Color Constants
+#These values are stored in $1 as well
+define constant (4,Green)
+define constant (5,Red)
+define constant (6,Blue)
+#Class Constants
+#These values are stored in $3 as well
+define constant (7,Warrior)
+define constant (8,Mage)
+define constant (9,Thief)
+define constant (10,Archer)
+define constant (11,Healer)
+#Diety Constants
+#These values are stored in $4 as well
+define constant (12,Abholos)
+define constant (13,Osmo)
+define constant (14,Gagckt)
+define constant (15,Shathak)
+define constant (16,Birmus)
+define constant (17,NoOne)
+#Let's Define some globals
+#these globals will be used to store some of the player character info
+global variable (1,Race)
+global variable (2,Sex)
+global variable (3,Class)
+global variable (4,Deity)
+global variable (5,Karma)
+global variable (6,Alingment)
+#Lets reserve some strings
+#first some 
+$1="Race"
+$2="Gender"
+$3="Class"
+$4="Diety"
+$5="
