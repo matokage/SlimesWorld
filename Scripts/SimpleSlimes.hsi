@@ -17,7 +17,20 @@ define constant, begin
 15,tag:Shathak
 16,tag:Birmus
 17,tag:NoOne
-1,sfx:C4 C 10hz
+18,tag:MainQuest
+19,tag:NoneuBie1
+20,tag:KnowShit
+21,tag:NoneuBie2
+22,tag:Noneubie3Harvested
+23,tag:Noneubie4
+24,tag:Noneubie5Crafted
+25,tag:Noneubie6
+26,tag:Noneubie7HuntS
+27,tag:Noneubie8HuntD
+0,sfx:Cancel
+1,sfx:select
+2,sfx:confirm
+3,sfx:Speech
 0,hero:MaleSpirit
 1,hero:FemaleSpirit
 2,hero:MGWarrior
@@ -50,6 +63,67 @@ define constant, begin
 29,hero:FRHealer
 30,hero:MBHealer
 31,hero:FBHealer
+1,item:Wood
+2,item:WKukri
+3,item:Magic
+4,item:Ban
+5,item:Wood 2
+6,item:Green
+7,item:Red
+8,item:Blue
+9,item:¡ Iron
+10,item:¡ Copper
+11,item:¡ Gold
+12,item:¡ Silver
+13,item:¡ Coal
+14,item:¡ Tin
+15,item:¡ Titan
+16,item:¢ Iron
+17,item:¢ Copper
+18,item:¢ Tin
+19,item:¢ Bronze
+20,item:¢ Steel
+21,item:¢ Gold
+22,item:¢ Silver
+23,item:¢ Titan
+24,item:£ Jatobá
+25,item:£ Manacá
+26,item:£ Ipé
+27,item:¤ Jatobá
+28,item:¤ Manacá
+29,item:¤ Ipé
+30,item:¥ Wolf
+31,item:¥ Fox
+32,item:¥ Sheep
+33,item:¥ Cow
+34,item:§ Tanned
+35,item:§ Raw
+36,item:¦ Wool
+37,item:¦ Raw
+38,item:MinorH
+39,item:MediuH
+40,item:MajorH
+41,item:Cure
+42,item:Talk
+43,item:Move
+44,item:Atk²1
+45,item:Atk²2
+46,item:Atk²3
+47,item:Def²1
+48,item:Def²2
+49,item:Def²3
+50,item:MinorM
+51,item:MediuM
+52,item:MajorM
+53,item:Jatobá
+54,item:Jatobá 2
+55,item:Liptus
+56,item:Liptus 2
+57,item:Wool
+58,item:Wool 2
+59,item:Raw
+60,item:Raw 2
+61,item:Jatobá 3
 0,stat:HP
 1,stat:MP
 2,stat:Atk
@@ -79,14 +153,63 @@ define constant, begin
 14,element:Type 7killer
 15,element:Type 8killer
 1,slot:Weapon
-1,slot:Weapon 2
 2,slot:Head
 3,slot:Body
 4,slot:Arms
 5,slot:Legs
+0,map:Overworld
+1,map:Main Menu
+2,map:Nubi Village
+3,map:Nubi Interiors
+4,map:Unami Forest
+1,atk:Attack
+2,atk:Slash
+3,atk:Smash
+4,atk:Heal
+5,atk:Missile
+6,atk:Shadows
+7,atk:Backstab
+8,atk:AbReserv
+9,atk:AbReserv2
+10,atk:Roar
+11,atk:Rage
+12,atk:OsReserv1
+13,atk:OsReserv2
+14,atk:WindWalk
+15,atk:Bullseye
+16,atk:GaReserv1
+17,atk:GaReserv2
+18,atk:Insigth
+19,atk:Burst
+20,atk:ShReserv1
+21,atk:ShReserv2
+22,atk:Unbeliving
+23,atk:Panacea
+24,atk:BiReserv1
+25,atk:Will
+26,atk:Faith
+27,atk:NoReserv1
+28,atk:NoReserv2
+1,shop:Alhu
+2,shop:Forge
+3,shop:Saw Mill
+4,shop:Nubi's Inn
 1,menu:Character Edition
 2,menu:Gender
 3,menu:Race
 4,menu:Class
 5,menu:Diety
+6,menu:Start Menu
+7,menu:Priest
+8,menu:Noneu Bie
+9,menu:Journal
+1,enemy:Small Slime
+2,enemy:Glitched Slime
+3,enemy:Mounted Slime
+4,enemy:Slime Trio
+5,enemy::3
+6,enemy:Remenant
+7,enemy:High Slime
+8,enemy:Slime Gang
+1,sli:treeHack
 end

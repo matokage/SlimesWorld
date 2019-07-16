@@ -712,3 +712,4 @@ script,CheckClear,begin
 	clear string(3)
 	clear string(4)
 end
+

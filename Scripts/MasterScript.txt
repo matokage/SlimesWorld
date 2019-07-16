@@ -588,82 +588,82 @@ End
 #Character Edition menu elements and submenus
 
 plotscript,MaleCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Sex := Male
 End
 
 plotscript,FemaleCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Sex := Female
 End
 
 plotscript,RedCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Race := Red
 End
 
 plotscript,GreenCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Race := Green
 End
 
 plotscript,BlueCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Race := Blue
 End
 
 plotscript,WarriorCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Class := Warrior
 End
 
 plotscript,MageCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Class := Mage
 End
 
 plotscript,ThiefCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Class := Thief
 End
 
 plotscript,ArcherCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Class := Archer
 End
 
 plotscript,HealerCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Class := Healer
 End
 
 plotscript,AbholosCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := Abholos
 End
 
 plotscript,OsmoCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := Osmo
 End
 
 plotscript,GagcktCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := Gagckt
 End
 
 plotscript,ShathakCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := Shathak
 End
 
 plotscript,BirmusCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := Birmus
 End
 
 plotscript,NoOneCM,begin
-	play sound(sfx:C4 C 10hz)
+	play sound(2)
 	Deity := NoOne
 End
 
@@ -689,20 +689,68 @@ end
 #
 	
 plotscript,jatoba harvest,IDnum,IDcop,begin
-	destroy npc (IDcop)
+	#The kick start for this script was base with the help from people from Slime Salad's IRC channel
+	#frist, let define some variables
+	variable(col,tsl,nsl,slX,slY)
+	#then let's define their values
+	col := load slice collection(0)
+	tsl := lookup slice(sli:treeHack, col)
+	nsl := get NPC slice (IDcop)
+	slX := slice X (tsl)
+	slY := slice Y (tsl)
+	#Now, we define the NPC referenced in nsl as parent of the text slice
+	set parent (tsl, nsl)
+	#play a silly sound
 	play sound (0)
+	#and do some animation moving the slice up
+	#it actaully gets the slice current Y position and subtract 3
+	#thus moving 3 pixels per game tick
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	set slice Y (tsl,(slY -- 3))
+	wait(1)
+	#the NPC is then destroyed
+	destroy npc (IDcop)
+	#and the tree spoils are then given
 	get item (24,1)
+	if ((random(0,100)) <= 50) then
+		(get item (61,1))
+	
 end
+
 plotscript,manaca harvest,IDnum,IDcop,begin
-	destroy npc (IDcop)
+	variable(col,tsl,nsl)
+	col := load slice collection(0)
+	tsl := lookup slice(sli:treeHack, col)
+	nsl := get NPC slice (IDcop)
+	set parent (tsl, nsl)
 	play sound (0)
-	get item (25,1)
+	wait(5)
+	destroy npc (IDcop)
+	get item (24,1)
 end
 	
 plotscript,ipe harvest,IDnum,IDcop,begin
-	destroy npc (IDcop)
+	variable(col,tsl,nsl)
+	col := load slice collection(0)
+	tsl := lookup slice(sli:treeHack, col)
+	nsl := get NPC slice (IDcop)
+	set parent (tsl, nsl)
 	play sound (0)
-	get item (26,1)
+	wait(5)
+	destroy npc (IDcop)
+	get item (24,1)
 end
 
 plotscript,CharSheet,begin
@@ -710,4 +758,10 @@ plotscript,CharSheet,begin
 	show textbox (38)
 	wait for textbox
 end
-		
+
+plotscript,Lump_Village,IDnum,IDcop,begin
+	destroy npc (IDcop)
+	show textbox (52)
+	wait for textbox
+end
+			

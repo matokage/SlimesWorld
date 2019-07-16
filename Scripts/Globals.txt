@@ -34,8 +34,17 @@ global variable (5,Karma)
 global variable (6,Alingment)
 #Lets reserve some strings
 #first some 
-$1="Race"
-$2="Gender"
-$3="Class"
-$4="Diety"
-$5="
+#$1="Race"
+#$2="Gender"
+#$3="Class"
+#$4="Diety"
+#$5="QuestReserv1"
+#$6="QuestReserv2"
+#$7="QuestReserv3"
+#$8="QuestReserv4"
+#$9="QuestReserv5"
+#$10="CountReserv1"
+#$11="CountReserv2"
+#$12="CountReserv3"
+#$13="CountReserv4"
+#$14="CountReserv5"
